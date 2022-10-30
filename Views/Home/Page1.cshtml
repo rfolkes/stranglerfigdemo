@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Page 1 - ASP.NET 4.7.2";
+    var counter = ViewData["Counter"].ToString();
+}
+
+<div class="jumbotron">
+    <h2>Page 1 - ASP.NET 4.7.2</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>@counter</h2>
+        <form method="post" action="@Url.Action("Page1UpdateCounter", "Home")">
+            <input type="submit" value="Update counter" id="Submit" class="btn btn-default" />
+        </form>
+    </div>
+</div>
