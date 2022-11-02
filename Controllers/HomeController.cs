@@ -6,26 +6,26 @@ namespace StranglerFigDemo.Controllers
     {
         public ActionResult Page1()
         {
-            if (HttpContext.Session.Contents["Counter"] == null)
+            if (HttpContext.Session["Counter"] == null)
             {
 
-                HttpContext.Session.Contents["Counter"] = 0;
+                HttpContext.Session["Counter"] = 0;
             }
 
-            ViewData["Counter"] = HttpContext.Session.Contents["Counter"];
+            ViewData["Counter"] = HttpContext.Session["Counter"];
 
             return View(ViewData);
         }
         
         public ActionResult Page2()
         {
-            if (HttpContext.Session.Contents["Counter"] == null)
+            if (HttpContext.Session["Counter"] == null)
             {
 
-                HttpContext.Session.Contents["Counter"] = 0;
+                HttpContext.Session["Counter"] = 0;
             }
 
-            ViewData["Counter"] = HttpContext.Session.Contents["Counter"];
+            ViewData["Counter"] = HttpContext.Session["Counter"];
 
             return View(ViewData);
         }
@@ -34,13 +34,13 @@ namespace StranglerFigDemo.Controllers
         public ActionResult Page1UpdateCounter()
         {
 
-            if (HttpContext.Session.Contents["Counter"] == null)
+            if (HttpContext.Session["Counter"] == null)
             {
 
-                HttpContext.Session.Contents["Counter"] = 0;
+                HttpContext.Session["Counter"] = 0;
             }
 
-            HttpContext.Session.Contents["Counter"] = (int)HttpContext.Session.Contents["Counter"] + 1;
+            HttpContext.Session["Counter"] = (int)HttpContext.Session["Counter"] + 1;
 
             return RedirectToAction("Page1");
         }
@@ -49,13 +49,13 @@ namespace StranglerFigDemo.Controllers
         public ActionResult Page2UpdateCounter()
         {
 
-            if (HttpContext.Session.Contents["Counter"] == null)
+            if (HttpContext.Session["Counter"] == null)
             {
 
-                HttpContext.Session.Contents["Counter"] = 0;
+                HttpContext.Session["Counter"] = 0;
             }
 
-            HttpContext.Session.Contents["Counter"] = (int)HttpContext.Session.Contents["Counter"] + 1;
+            HttpContext.Session["Counter"] = (int)HttpContext.Session["Counter"] + 1;
 
             return RedirectToAction("Page2");
         }
