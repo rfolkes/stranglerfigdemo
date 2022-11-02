@@ -32,10 +32,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
-app.UseStaticFiles();
-
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -44,8 +42,10 @@ app.UseSystemWebAdapters();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Page1}/{id?}")
-    .BufferResponseStream()
-    .PreBufferRequestStream()
-    .RequireSystemWebAdapterSession();
+.BufferResponseStream()
+.PreBufferRequestStream()
+.RequireSystemWebAdapterSession();
+
 app.MapReverseProxy();
+
 app.Run();
