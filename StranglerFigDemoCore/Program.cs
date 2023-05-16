@@ -5,6 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
 builder.Services.AddMemoryCache();
 
+builder.Services.AddReverseProxy().LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
+
+
 builder.Services.AddSystemWebAdapters()
     .AddJsonSessionSerializer(options =>
     {
@@ -21,7 +24,6 @@ builder.Services.AddSystemWebAdapters()
     })
     .AddSessionClient();
 
-builder.Services.AddReverseProxy().LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
 var app = builder.Build();
 

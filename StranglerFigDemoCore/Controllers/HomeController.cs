@@ -6,6 +6,8 @@ namespace StranglerFigDemoCore
     {
         public IActionResult Page1()
         {
+           // return View();
+
             if (System.Web.HttpContext.Current?.Session?["Counter"] == null)
             {
                 System.Web.HttpContext.Current.Session["Counter"] = 0;
@@ -19,10 +21,10 @@ namespace StranglerFigDemoCore
         [HttpPost]
         public IActionResult Page1UpdateCounter()
         {
+            //return RedirectToAction("Page1");
 
             if (System.Web.HttpContext.Current?.Session?["Counter"] == null)
             {
-
                 System.Web.HttpContext.Current.Session["Counter"] = 0;
             }
 
